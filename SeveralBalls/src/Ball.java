@@ -1,75 +1,79 @@
-import java.awt.*;
-public class Ball
-{
-    private int x,y,size,xSpeed,ySpeed;
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+public class Ball {
+    private int x;
+    private int y;
+    private int size = (int)(Math.random() * 100.0);
+    private int xSpeed;
+    private int ySpeed;
     private Color color;
-    public Ball()
-    {
-        size = (int)(Math.random()*100);
-        x = (int)(Math.random()* (255-size))+size;
-        y = (int)(Math.random()* (255-size))+size;
-        xSpeed = (int)(Math.random()*5+1);
-        ySpeed = (int)(Math.random()*5+1);
-        color  = new Color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
+
+    public Ball() {
+        this.x = (int)(Math.random() * (double)(255 - this.size)) + this.size;
+        this.y = (int)(Math.random() * (double)(255 - this.size)) + this.size;
+        this.xSpeed = (int)(Math.random() * 5.0 + 1.0);
+        this.ySpeed = (int)(Math.random() * 5.0 + 1.0);
+        this.color = new Color((int)(Math.random() * 255.0), (int)(Math.random() * 255.0), (int)(Math.random() * 255.0));
     }
-    public int getSize()
-    {
-        return size;
+
+    public int getSize() {
+        return this.size;
     }
-    public int getX()
-    {
-        return x;
+
+    public int getX() {
+        return this.x;
     }
-    public int getY()
-    {
-        return y;
+
+    public int getY() {
+        return this.y;
     }
-    public void xFlip()
-    {
-        if(xSpeed<0)
-        {
-            xSpeed=(int)(Math.random()*5+1);
-        }
-        else
-        {
-            xSpeed=-(int)(Math.random()*5+1);
+
+    public void xFlip() {
+        if (this.xSpeed < 0) {
+            this.xSpeed = (int)(Math.random() * 5.0 + 1.0);
+        } else {
+            this.xSpeed = -((int)(Math.random() * 5.0 + 1.0));
         }
 
     }
-    public void yFlip()
-    {
-        if(x<0)
-        {
-            x=0;
+
+    public void yFlip() {
+        if (this.x < 0) {
+            this.x = 0;
         }
-        if(y<0)
-        {
-            y=0;
+
+        if (this.y < 0) {
+            this.y = 0;
         }
-        if(ySpeed<0)
-        {
-            ySpeed=(int)(Math.random()*5+1);
+
+        if (this.ySpeed < 0) {
+            this.ySpeed = (int)(Math.random() * 5.0 + 1.0);
+        } else {
+            this.ySpeed = -((int)(Math.random() * 5.0 + 1.0));
         }
-        else
-        {
-            ySpeed=-(int)(Math.random()*5+1);
-        }
+
     }
-    public Color getColor()
-    {
-        return color;
+
+    public Color getColor() {
+        return this.color;
     }
-    public void xAdd()
-    {
-        x+=xSpeed;
+
+    public void xAdd() {
+        this.x += this.xSpeed;
     }
-    public void yAdd()
-    {
-        y+=ySpeed;
+
+    public void yAdd() {
+        this.y += this.ySpeed;
     }
-    public void drawBall(Graphics g)
-    {
-        g.fillOval(getX(),getY(), getSize(),getSize());
-        g.setColor(getColor());
+
+    public void drawBall(Graphics g) {
+        g.fillOval(this.getX(), this.getY(), this.getSize(), this.getSize());
+        g.setColor(this.getColor());
     }
 }
